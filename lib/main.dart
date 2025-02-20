@@ -38,13 +38,14 @@ class _MyAppState extends State<MyApp> {
       padding: const EdgeInsets.all(20.0),
       child: SafeArea(child: Column(
         children: [
-          SizedBox(height: 200,),
-          Row(
+          SizedBox(height: 100,),
+          Column(
             children: [
+              Image.asset('images/spotact.png'),
               Text('Spotify', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 50,),),
             ],
           ),
-          SizedBox(height: 20,),
+          SizedBox(height: 40,),
           CupertinoTextField(
             controller: _username,
             placeholder: "Username",
@@ -54,13 +55,13 @@ class _MyAppState extends State<MyApp> {
 
 
           ),
-          SizedBox(height: 5,),
+          SizedBox(height: 19,),
           CupertinoTextField(
             controller: _password,
             placeholder: "Password",
             padding: EdgeInsets.all(10),
             obscureText: hidePassword,
-            suffix: CupertinoButton(child: Icon(hidePassword? CupertinoIcons.eye :  CupertinoIcons.eye_slash, size:20,), onPressed: (){
+            suffix: CupertinoButton(child: Icon(hidePassword? CupertinoIcons.eye :  CupertinoIcons.eye_slash, size:20, color: CupertinoColors.systemGrey,), onPressed: (){
               setState(() {
                 hidePassword = !hidePassword;
               });
