@@ -52,6 +52,7 @@ class _MyAppState extends State<MyApp> {
             padding: EdgeInsets.all(13),
 
 
+
           ),
           SizedBox(height: 5,),
           CupertinoTextField(
@@ -64,7 +65,6 @@ class _MyAppState extends State<MyApp> {
                 hidePassword = !hidePassword;
               });
             }),
-
           ),
           SizedBox(height: 20,),
           Container(
@@ -74,9 +74,7 @@ class _MyAppState extends State<MyApp> {
             ),
             child: CupertinoButton(child: Text('Log In', style: TextStyle(color: CupertinoColors.black),), onPressed: (){
                 isLogin(_username.text, _password.text) ?
-
                 Navigator.pushReplacement(context, CupertinoPageRoute(builder: (context)=> Homepage()))
-
                 : setState(() {
                   _username.text = "";
                   _password.text = "";
