@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:loginact1/homepage.dart';
 
 void main() {
   runApp(CupertinoApp(
@@ -22,6 +23,16 @@ class _MyAppState extends State<MyApp> {
   TextEditingController _username = TextEditingController();
   TextEditingController _password = TextEditingController();
   bool hidePassword = false;
+  String error = "";
+
+  bool isLogin(String username, String password) {
+    if (username == "admin" && password == "123"){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(child: Padding(
@@ -31,11 +42,12 @@ class _MyAppState extends State<MyApp> {
           SizedBox(height: 200,),
           Row(
             children: [
-              Text('facebook', style: TextStyle(color: CupertinoColors.systemBlue, fontWeight: FontWeight.bold, fontSize: 25),),
+              Text('Spotify', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 50,),),
             ],
           ),
           SizedBox(height: 20,),
           CupertinoTextField(
+            controller: _username,
             placeholder: "Username",
             padding: EdgeInsets.all(13),
 
@@ -43,6 +55,7 @@ class _MyAppState extends State<MyApp> {
           ),
           SizedBox(height: 5,),
           CupertinoTextField(
+            controller: _password,
             placeholder: "Password",
             padding: EdgeInsets.all(10),
             obscureText: hidePassword,
@@ -57,13 +70,22 @@ class _MyAppState extends State<MyApp> {
           Container(
             width: double.maxFinite,
             decoration: BoxDecoration(
-              color: CupertinoColors.systemBlue
+              color: CupertinoColors.systemGreen
             ),
-            child: CupertinoButton(child: Text('Login', style: TextStyle(color: CupertinoColors.white),), onPressed: (){
+            child: CupertinoButton(child: Text('Log In', style: TextStyle(color: CupertinoColors.black),), onPressed: (){
+                isLogin(_username.text, _password.text) ?
 
+                Navigator.pushReplacement(context, CupertinoPageRoute(builder: (context)=> Homepage()))
+
+                : setState(() {
+                  _username.text = "";
+                  _password.text = "";
+                  error = "Incorrect Username or Password";
+                });
             }),
-          )
-
+          ),
+          SizedBox(height: 10,),
+          Text("$error", style: TextStyle(color: CupertinoColors.destructiveRed),)
         ],
       )),
     ));
