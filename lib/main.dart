@@ -32,7 +32,6 @@ class _MyAppState extends State<MyApp> {
       return false;
     }
   }
-
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(child: Padding(
@@ -50,6 +49,7 @@ class _MyAppState extends State<MyApp> {
             controller: _username,
             placeholder: "Username",
             padding: EdgeInsets.all(13),
+
 
 
 
@@ -74,6 +74,7 @@ class _MyAppState extends State<MyApp> {
             ),
             child: CupertinoButton(child: Text('Log In', style: TextStyle(color: CupertinoColors.black),), onPressed: (){
                 isLogin(_username.text, _password.text) ?
+
                 Navigator.pushReplacement(context, CupertinoPageRoute(builder: (context)=> Homepage()))
                 : setState(() {
                   _username.text = "";
@@ -82,6 +83,8 @@ class _MyAppState extends State<MyApp> {
                 });
             }),
           ),
+
+
           SizedBox(height: 10,),
           Text("$error", style: TextStyle(color: CupertinoColors.destructiveRed),)
         ],
