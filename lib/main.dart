@@ -22,7 +22,7 @@ class _MyAppState extends State<MyApp> {
 
   TextEditingController _username = TextEditingController();
   TextEditingController _password = TextEditingController();
-  bool hidePassword = false;
+  bool hidePassword = true;
   String error = "";
 
   bool isLogin(String username, String password) {

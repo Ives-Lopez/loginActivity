@@ -22,6 +22,7 @@ class _HomepageState extends State<Homepage> {
               actions: [
                 CupertinoButton(child: Text('Yes', style: TextStyle(color: CupertinoColors.systemGreen),), onPressed: (){
                   Navigator.pushReplacement(context, CupertinoPageRoute(builder: (context)=>MyApp()));
+
                 }),
                 CupertinoButton(child: Text('No', style: TextStyle(color: CupertinoColors.destructiveRed),), onPressed: (){
                   Navigator.pop(context);
